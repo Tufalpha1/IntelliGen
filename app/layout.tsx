@@ -19,10 +19,11 @@ export default function RootLayout({
   return (
     <ClerkProvider
       appearance={{
-        elements: {
-          formButtonPrimary:
-            "bg-slate-800 hover:bg-slate-700 text-sm normal-case",
-        },
+        // elements: {
+        //   formButtonPrimary:
+        //     "bg-slate-800 hover:bg-slate-700 text-sm normal-case",
+        // },
+        baseTheme: dark,
       }}
     >
       <html lang="en">
