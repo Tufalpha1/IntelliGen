@@ -11,7 +11,7 @@ export const Loader = () => {
                 src='/loader.png'
             />
         </div>
-        <p className='text-sm text-muted-foreground'>IntelliGen is thinking...</p>
+        <p className='text-sm text-muted-foreground'>IntelliGen is generating...</p>
 
     </div>
   )
