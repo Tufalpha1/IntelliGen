@@ -4,45 +4,9 @@ import { Card } from '@/components/ui/card'
 import { useRouter } from "next/navigation";
 import { MessageSquare, ArrowRight, Music, ImageIcon, VideoIcon, Code } from 'lucide-react'
 import { cn } from '@/lib/utils'  
+import { tools } from '@/constants';
 
 
-const tools = [
-  {
-    label: "Conversation",
-    icon: MessageSquare,
-    color: "text-violet-500",
-    bgColor: "bg-violet-500/10",
-    href: "/conversation",
-  },
-  {
-    label: "Music Generation",
-    icon: Music,
-    color: "text-emerald-500",
-    bgColor: "bg-emerald-500/10",
-    href: "/music",
-  },
-  {
-    label: "Image Generation",
-    icon: ImageIcon,
-    color: "text-pink-700",
-    bgColor: "bg-pink-700/10",
-    href: "/image",
-  },
-  {
-    label: "Video Generation",
-    icon: VideoIcon,
-    color: "text-orange-700",
-    bgColor: "bg-orange-700/10",
-    href: "/video",
-  },
-  {
-    label: "Code Generation",
-    icon: Code,
-    color: "text-green-700",
-    bgColor: "bg-green-700/10",
-    href: "/code",
-  },
-];
 
 const Dashboard = () => {
   const router = useRouter();
@@ -60,8 +24,7 @@ const Dashboard = () => {
         className="absolute top-0 translate-y-1/4 left-1/2 -translate-x-1/2 pointer-events-none -z-10 w-1/2 aspect-square"
         aria-hidden="true"
       >
-        <div className="absolute inset-0 translate-z-0 bg-slate-800 rounded-full blur-[100px]">
-        </div>
+        <div className="absolute inset-0 translate-z-0 bg-gradient-to-r from-[#36b49f]/20 to-[#DBFF75]/20 rounded-full blur-[80px]"></div>
       </div>
       <div className="px-4 md:px-20 lg:px-32 space-y-4">
         {tools.map((tool) => (

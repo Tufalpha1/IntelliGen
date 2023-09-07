@@ -32,14 +32,15 @@ import {
 import { amountOptions, resolutionOptions } from './constants';
 import { Card, CardFooter } from '@/components/ui/card';
 import Image from 'next/image';
-// import { useProModal } from "@/hooks/use-pro-modal";
+import { useProModal } from "@/hooks/use-pro-modal";
+import { toast } from 'react-hot-toast';
 
 
 
 const ImagePage = () => {
   const router = useRouter();
   const [images, setImages] = useState<string[]>([]);
-  // const proModal = useProModal();
+  const proModal = useProModal();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -64,9 +65,9 @@ const ImagePage = () => {
       form.reset();
     } catch (error: any) {
       if (error?.response?.status === 403) {
-        // proModal.onOpen();
+        proModal.onOpen();
       } else {
-        // toast.error("Something went wrong.");
+        toast.error("Something went wrong.");
       }
     } finally {
       router.refresh();
@@ -175,6 +176,7 @@ const ImagePage = () => {
               type="submit"
               disabled={isLoading}
               size="icon"
+              variant="gray"
             >
               Generate
             </Button>

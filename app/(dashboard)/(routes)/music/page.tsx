@@ -24,13 +24,14 @@ import { Loader } from '@/components/Loader';
 import { cn } from '@/lib/utils';
 import { UserAvatar } from '@/components/UserAvatar';
 import { BotAvatar } from '@/components/BotAvatar';
-// import { useProModal } from "@/hooks/use-pro-modal";
+import { useProModal } from "@/hooks/use-pro-modal";
+import { toast } from "react-hot-toast";
 
 
 
 const MusicPage = () => {
   const router = useRouter();
-  // const proModal = useProModal();
+  const proModal = useProModal();
   const [music, setMusic] = useState<string>();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -53,9 +54,9 @@ const MusicPage = () => {
       form.reset();
     } catch (error: any) {
       if (error?.response?.status === 403) {
-        // proModal.onOpen();
+        proModal.onOpen();
       } else {
-        // toast.error("Something went wrong.");
+        toast.error("Something went wrong.");
       }
     } finally {
       router.refresh();

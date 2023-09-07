@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
+import FreeCounter from './FreeCounter';
 
 const routes = [
   {
@@ -58,7 +59,15 @@ const routes = [
   },
 ];
 
-const Sidebar = () => {
+interface SidebarProps {
+  apiLimitCount: number;
+  isPro: boolean;
+};
+
+const Sidebar = ({
+  apiLimitCount = 0,
+  isPro = false,
+}: SidebarProps) => {
 
   const pathname = usePathname();
   return (
@@ -89,6 +98,10 @@ const Sidebar = () => {
           ))}
         </div>
       </div>
+      <FreeCounter 
+      isPro={isPro}
+      apiLimitCount={apiLimitCount}
+      />
     </div>
   );
 }
