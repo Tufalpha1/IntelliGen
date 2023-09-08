@@ -3,8 +3,9 @@
 import TypewriterComponent from "typewriter-effect";
 import Link from "next/link";
 import { useAuth } from "@clerk/nextjs";
-
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
+import { Terminal } from "lucide-react";
 
 export const LandingHero = () => {
   const { isSignedIn } = useAuth();
@@ -44,6 +45,17 @@ export const LandingHero = () => {
       <div className="text-zinc-400 text-xs md:text-sm font-normal">
         No credit card required.
       </div>
+      <Alert>
+        <Terminal className="h-4 w-4 text-white" />
+        <AlertTitle>Heads up!</AlertTitle>
+        <AlertDescription>
+          <p className="text-center text-sm font-medium">
+            Due to OpenAI and Replica API limit being exceeded,{" "}
+            <span className="underline">{`You won't be able to generate any content.`}</span>{" "}
+            You can still view the website and its features.
+          </p>
+        </AlertDescription>
+      </Alert>
     </div>
   );
 };
